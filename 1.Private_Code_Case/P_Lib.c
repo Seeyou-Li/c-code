@@ -30,4 +30,31 @@ int fputc(int ch, FILE *f) // define printf , by redefine the fputc() in  stdio.
 	HAL_UART_Transmit(&HUART, (uint8_t*)&ch, 1, 0xFFFF); 
 	return ch;
 }
+
+/*****************************冒泡排序法、去两头取平均************************************/
+// bubble sort
+#define FILTER_NUM  100 //采集的数据个数
+#define DISCARD_DATA_NUM 10 //丢弃的数据个数=DISCARD_DATA_NUM*2
+
+int i,j,sum,tran=0;
+int array[FILTER_NUM] = {0};
+for(i=0; i<FILTER_NUM-1; i++)
+{
+	for(j=0; j<FILTER_NUM-1-i; j++)
+	{
+		if(array[j] > array[j+1])
+		{
+			tran= array[j];
+			array[j] = array[j+1];
+			array[j+1] = tran;
+		}
+	}
+}
+// 
+for(i=DISCARD_DATA_NUM; i<FILTER_NUM-DISCARD_DATA_NUM; i++)
+{
+	sum += array[i];
+}
+return sum/(FILTER_NUM-2*DISCARD_DATA_NUM);
+
 #endif

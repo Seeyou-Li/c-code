@@ -55,9 +55,15 @@ char* strcpy(char* strDestination, const char* strSource);
 参数说明：
 strDestination：目的字符串。
 strSource：源字符串。
+
 2、初始化数组对应的内存
 char str[10];
 char *p = str
 memset(str, 0, sizeof(str));  //只能写sizeof(str), 不能写sizeof(p)
 
+3、求字符串长度，数组长度
+arr[]="welcome"
+a = sizeof(arr)//包含"\0"
+b = strlng(arr)//不包含"\0"
+a = b+1（\0）
 */
