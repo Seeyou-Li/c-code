@@ -1,5 +1,6 @@
-//一、折半查找算法学习与实操 
-//1:主函数执行 
+/*一、算法学习与实操 */
+//1、折半查找
+//1.1主函数执行 
 int main()
 {
 	int arr[] = {1,2,3,4,5,6,7,8,9,10};
@@ -26,7 +27,7 @@ int main()
 	else
 		printf("找不到\n");
 }
-//2:构建函数 
+//1.2:构建函数 
 int bin_search(int arr[], int left, int right, int key)
 {
 	 int mid = 0;
@@ -46,6 +47,32 @@ int bin_search(int arr[], int left, int right, int key)
 	 }
 	  return -1;//找不到
 }
+
+//2、辗转相除法求最大公约数
+u32 MaxCommonDivisor (u32 n,u32 m)
+{
+	u32 r = 0;
+	while (r = m%n)
+	{
+		m = n;
+		n = r;
+	}
+	printf("Max Common Divisor = %d\r\n",n);
+	return r;
+}
+
+//3、随机数的生成
+#include <stdib.h>
+#include <time.h>
+
+void RandGenerate(void)
+{	int ret = 0;
+	srand((u16)time(NULL));//使用时间戳设置随机数的生成起始点，只要在代码运行周期中设置一次即可
+	ret = rand();//产生随机数
+	ret = rand()%100+1;//产生1-100的随机数
+}
+
+
 /*二、字符串相关函数
 1、字符串复制
 头文件：string.h
